@@ -1,5 +1,4 @@
 import { Dimensions, Platform } from 'react-native'
-
 const isIOS = () => {
   return Platform.OS === 'ios'
 }
