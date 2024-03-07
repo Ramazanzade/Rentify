@@ -48,65 +48,84 @@
 
 
 
-import React, { useEffect, useRef, useState } from 'react';
-import { View, Animated, Easing, Text, StyleSheet } from 'react-native';
-const Splas = () => {
-  const animatedValues = useRef(Array.from({ length: 10 }, () => new Animated.Value(0))).current; 
-  const text = "Rentifiy";
-  useEffect(() => {
-    const animations = text.split('').map((_, index) => {
-      return Animated.timing(animatedValues[index], {
-        toValue: 1,
-        duration: 500,
-        delay: index * 100, 
-        easing: Easing.linear,
-        useNativeDriver: true,
-      });
-    });
+// import React, { useEffect, useRef, useState } from 'react';
+// import { View, Animated, Easing, Text, StyleSheet } from 'react-native';
+// const Splas = () => {
+//   const animatedValues = useRef(Array.from({ length: 10 }, () => new Animated.Value(0))).current; 
+//   const text = "Rentifiy";
+//   useEffect(() => {
+//     const animations = text.split('').map((_, index) => {
+//       return Animated.timing(animatedValues[index], {
+//         toValue: 1,
+//         duration: 500,
+//         delay: index * 100, 
+//         easing: Easing.linear,
+//         useNativeDriver: true,
+//       });
+//     });
 
-    Animated.stagger(100, animations).start();
-  }, []);
+//     Animated.stagger(100, animations).start();
+//   }, []);
 
-  return (
-    <View style={{ backgroundColor: '#323232', flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Animated.View style={{ flexDirection: 'row' }}>
-        {text.split('').map((char, index) => (
-          <Animated.Text
-            key={index}
-            style={{
-              color: 'green',
-              backgroundColor:'#FFFFFF',
-              fontSize: 100,
-              opacity: animatedValues[index],
-              fontFamily:'Dragrace',
-              transform: [
-                {
-                  translateX: animatedValues[index].interpolate({
-                    inputRange: [0, 1],
-                    outputRange: [-20, 0],
-                  }),
-                },
-              ],
-            }}>
-            {char}
-          </Animated.Text>
-        ))}
+//   return (
+//     <View style={{ backgroundColor: '#323232', flex: 1, justifyContent: 'center', alignItems: 'center' }}>
+//       <Animated.View style={{ flexDirection: 'row' }}>
+//         {text.split('').map((char, index) => (
+//           <Animated.Text
+//             key={index}
+//             style={{
+//               color: 'green',
+//               backgroundColor:'#FFFFFF',
+//               fontSize: 100,
+//               opacity: animatedValues[index],
+//               fontFamily:'Dragrace',
+//               transform: [
+//                 {
+//                   translateX: animatedValues[index].interpolate({
+//                     inputRange: [0, 1],
+//                     outputRange: [-20, 0],
+//                   }),
+//                 },
+//               ],
+//             }}>
+//             {char}
+//           </Animated.Text>
+//         ))}
       
-      </Animated.View>
-      <Text style={styles.text}>Salam</Text>
+//       </Animated.View>
+//       <Text style={styles.text}>Whereas</Text>
+//     </View>
+//   );
+// };
+
+// const styles = StyleSheet.create({
+//   text: {
+//     color: '#FFFFFF',
+//     fontFamily: 'Dragrace',
+//     fontSize: 50,
+//   },
+// });
+
+// export default Splas;
+
+
+
+import { View, Text, StyleSheet } from 'react-native'
+import React from 'react'
+
+const Splas = () => {
+  return (
+    <View>
+      <Text style={styles.text}>Rentifiy</Text>
     </View>
-  );
-};
+  )
+}
+
 
 const styles = StyleSheet.create({
   text: {
-    color: '#FFFFFF',
-    fontFamily: 'Dragrace',
-    fontSize: 100,
-  },
-});
-
-export default Splas;
-
-
-
+    color: 'red',
+    fontFamily: 'name',
+    fontSize: 50,
+  },})
+export default Splas
